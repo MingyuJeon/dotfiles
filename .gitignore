@@ -1,0 +1,17 @@
+# Secrets
+.secrets.zsh
+*.secrets
+*.secret
+
+# OS
+.DS_Store
+*~
+
+# Nvim generated
+nvim/lazy-lock.json
+
+# Zellij backups
+zellij/*.bak*
+
+# Sync log
+.sync.log

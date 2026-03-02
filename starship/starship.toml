@@ -1,0 +1,17 @@
+[python]
+symbol = "🐍 "
+style = "bold green"
+detect_extensions = ["py"]
+detect_files = ["pyproject.toml", "requirements.txt"]
+detect_folders = [".venv", "venv"]
+
+[git_branch]
+symbol = "🌿 "
+style = "bold purple"
+
+[directory]
+truncate_to_repo = false
+truncation_length = 0
+
+[nodejs]
+disabled = true
