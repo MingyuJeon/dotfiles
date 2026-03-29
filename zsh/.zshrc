@@ -39,6 +39,7 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias z="v ~/.zshrc"
 alias zz="zellij"
+alias ci = "claude install"
 alias cc="claude --chrome"
 alias cr="claude -r"
 alias cm="claude-monitor"
@@ -342,3 +343,6 @@ eval $(thefuck --alias fk)
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh --cmd cd)"
+
+# Claude Code auto-restart wrapper
+alias ca="~/.claude/claude-auto.sh"
