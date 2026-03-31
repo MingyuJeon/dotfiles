@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias z="v ~/.zshrc"
 alias zz="zellij"
-alias ci = "claude install"
+alias ci="claude install"
 alias cc="claude --chrome"
 alias cr="claude -r"
 alias cm="claude-monitor"
