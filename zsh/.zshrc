@@ -77,7 +77,7 @@ alias gsw='git switch'
 alias gswc='git switch -c'
 alias grs='git restore --staged'
 alias kp='lsof -nP -iTCP:3000-3010 -sTCP:LISTEN | tail -n +2 | awk '"'"'{print $2}'"'"' | sort -u | xargs kill -9'
-
+alias sdb='eval $(grep SUPABASE_DB_PASSWORD .env.local) supabase db push'
 # ------------------------
 # Secrets (별도 파일에서 로드)
 # ------------------------
