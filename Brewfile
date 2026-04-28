@@ -1,6 +1,5 @@
 # CLI tools
 brew "bat"
-brew "claude-squad"
 brew "delta"
 brew "direnv"
 brew "eza"
@@ -10,12 +9,8 @@ brew "gh"
 brew "lazygit"
 brew "neovim"
 brew "nvm"
-brew "pyenv"
 brew "starship"
-brew "tailscale"
-brew "thefuck"
 brew "tlrc"
-brew "tmux"
 brew "tree"
 brew "uv"
 brew "wget"
@@ -29,8 +24,6 @@ brew "rust"
 brew "oven-sh/bun/bun"
 
 # Dev services
-brew "ollama"
-brew "redis"
 brew "stripe/stripe-cli/stripe"
 brew "supabase/tap/supabase"
 

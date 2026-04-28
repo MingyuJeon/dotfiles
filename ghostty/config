@@ -1,0 +1,16 @@
+# Ghostty config (used by cmux as well — cmux embeds libghostty)
+# https://ghostty.org/docs/config/reference
+
+# Primary font: Sarasa Term K — has Korean glyphs with matching metrics, no fallback breakage
+font-family = "Sarasa Term K"
+
+# Bold/italic: keep same family so weights stay consistent for Korean
+font-family-bold = "Sarasa Term K"
+font-family-italic = "Sarasa Term K"
+font-family-bold-italic = "Sarasa Term K"
+
+# Icon fallback: Sarasa has no Nerd Font glyphs, so fall back for those codepoints
+# (eza --icons, starship symbols, lazygit icons, etc.)
+font-family = "Symbols Nerd Font Mono"
+
+font-size = 14

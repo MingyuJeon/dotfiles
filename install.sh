@@ -64,6 +64,11 @@ echo "[zellij]"
 mkdir -p "$HOME/.config/zellij"
 link_file "$DOTFILES_DIR/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
 
+# --- Ghostty (also used by cmux via libghostty) ---
+echo "[ghostty]"
+mkdir -p "$HOME/.config/ghostty"
+link_file "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
+
 echo ""
 echo "=== Done! ==="
 echo ""
