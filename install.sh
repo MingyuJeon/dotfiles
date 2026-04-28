@@ -69,6 +69,11 @@ echo "[ghostty]"
 mkdir -p "$HOME/.config/ghostty"
 link_file "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
+# --- Claude Code statusline ---
+echo "[claude]"
+mkdir -p "$HOME/.claude"
+link_file "$DOTFILES_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
+
 echo ""
 echo "=== Done! ==="
 echo ""

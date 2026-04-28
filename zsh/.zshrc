@@ -254,6 +254,10 @@ export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.strix/bin:$PATH"
 export PATH=$PATH:$HOME/.maestro/bin
 
+# Cursor CLI — `code` opens Cursor (no VS Code installed)
+export PATH="/Applications/Cursor.app/Contents/Resources/app/bin:$PATH"
+alias code="cursor"
+
 # ------------------------
 # Stitch MCP 재인증
 # ------------------------
