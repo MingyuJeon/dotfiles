@@ -1,2 +1,2 @@
-# Secrets are loaded from ~/.secrets.zsh (not tracked in git)
-. "$HOME/.cargo/env"
+# Rust (rustup-managed) — load only if installed
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

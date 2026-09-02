@@ -64,31 +64,33 @@ echo "[zellij]"
 mkdir -p "$HOME/.config/zellij"
 link_file "$DOTFILES_DIR/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
 
-# --- Ghostty (font/appearance; also read by cmux) ---
+# --- Ghostty (font/appearance; also read by cmux via libghostty) ---
 echo "[ghostty]"
 mkdir -p "$HOME/.config/ghostty"
 link_file "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
-# --- cmux (macOS defaults) ---
+# --- cmux (macOS defaults; font comes from ghostty/config) ---
 echo "[cmux]"
 bash "$DOTFILES_DIR/cmux/defaults.sh"
 
-# --- Claude Code ---
+# --- Claude Code statusline ---
 echo "[claude]"
 mkdir -p "$HOME/.claude"
-link_file "$DOTFILES_DIR/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+link_file "$DOTFILES_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 claude_settings="$HOME/.claude/settings.json"
+statusline_cmd="$HOME/.claude/statusline.sh"
 if [ -f "$claude_settings" ] && command -v jq >/dev/null 2>&1; then
-  if jq -e '.statusLine' "$claude_settings" >/dev/null 2>&1; then
-    echo "  statusLine already set in ~/.claude/settings.json"
+  if [ "$(jq -r '.statusLine.command // ""' "$claude_settings")" = "$statusline_cmd" ]; then
+    echo "  statusLine already points to $statusline_cmd"
   else
     tmp=$(mktemp)
-    jq --arg cmd "$HOME/.claude/statusline-command.sh" \
-      '.statusLine = {type: "command", command: $cmd}' "$claude_settings" > "$tmp" && mv "$tmp" "$claude_settings"
-    echo "  Added statusLine to ~/.claude/settings.json"
+    jq --arg cmd "$statusline_cmd" \
+      '.statusLine = ((.statusLine // {}) + {type: "command", command: $cmd})' \
+      "$claude_settings" > "$tmp" && cat "$tmp" > "$claude_settings" && rm -f "$tmp"
+    echo "  Set statusLine.command = $statusline_cmd in ~/.claude/settings.json"
   fi
 else
-  echo "  NOTE: add to ~/.claude/settings.json -> \"statusLine\": {\"type\": \"command\", \"command\": \"~/.claude/statusline-command.sh\"}"
+  echo "  NOTE: add to ~/.claude/settings.json -> \"statusLine\": {\"type\": \"command\", \"command\": \"$statusline_cmd\"}"
 fi
 
 echo ""

@@ -255,6 +255,10 @@ export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.strix/bin:$PATH"
 export PATH=$PATH:$HOME/.maestro/bin
 
+# Cursor CLI — `code` opens Cursor (no VS Code installed)
+export PATH="/Applications/Cursor.app/Contents/Resources/app/bin:$PATH"
+alias code="cursor"
+
 # ------------------------
 # Stitch MCP 재인증
 # ------------------------
@@ -338,9 +342,8 @@ _fzf_comprun() {
 # ---- Eza (better ls) -----
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
-# thefuck alias
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
+# thefuck alias (only if installed)
+command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)" && eval "$(thefuck --alias fk)"
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh --cmd cd)"

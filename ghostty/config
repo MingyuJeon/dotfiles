@@ -1,57 +1,49 @@
-theme = Atom One Dark
-keybind = global:cmd+grave_accent=toggle_quick_terminal
+# Ghostty config — also read by cmux (cmux embeds libghostty)
+# https://ghostty.org/docs/config/reference
+
+# --- Font ---
 font-family = "D2Coding"
-
-window-height=30
-
-window-width=110
-
-title="GodSays"
-
-window-title-font-family="MonoLisa Variable"
-
-
-
-font-size=12
-
-font-feature=-liga
-
-font-thicken=true
-
+font-size = 12
+font-thicken = true
+font-feature = -liga
 font-feature = -calt
-
 font-feature = -dlig
-
 adjust-cell-height = 9%
 
-mouse-scroll-multiplier = 0.5
+# Alternative (new-machine setup, 2026-04): Sarasa Term K has Korean glyphs with matching
+# metrics, no fallback breakage. Install "Sarasa Term K" + "Symbols Nerd Font Mono", then
+# replace the font-family/font-size lines above with:
+#   font-family = "Sarasa Term K"
+#   font-family-bold = "Sarasa Term K"
+#   font-family-italic = "Sarasa Term K"
+#   font-family-bold-italic = "Sarasa Term K"
+#   font-family = "Symbols Nerd Font Mono"   # Nerd Font icon fallback (eza --icons, starship, lazygit)
+#   font-size = 14
 
+# --- Theme & window ---
+theme = Atom One Dark
+title = "GodSays"
+window-title-font-family = "MonoLisa Variable"
+window-height = 30
+window-width = 110
+window-padding-x = 15
+window-padding-y = 10
 macos-titlebar-style = tabs
-
 background-opacity = 0.90
-
 background-blur-radius = 20
-
+minimum-contrast = 2
+bold-is-bright = true
 selection-invert-fg-bg = true
 
-bold-is-bright = true
-
-minimum-contrast = 2
-
+# --- Cursor ---
 cursor-style = block
-
 cursor-style-blink = true
-
 cursor-invert-fg-bg = true
-
 cursor-opacity = .8
-
 shell-integration-features = no-cursor
 
-window-padding-x = 15
-
-window-padding-y = 10
-
+# --- Input & behavior ---
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+mouse-scroll-multiplier = 0.5
 copy-on-select = clipboard
-
 macos-option-as-alt = left
