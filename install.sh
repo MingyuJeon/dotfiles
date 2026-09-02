@@ -64,6 +64,33 @@ echo "[zellij]"
 mkdir -p "$HOME/.config/zellij"
 link_file "$DOTFILES_DIR/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
 
+# --- Ghostty (font/appearance; also read by cmux) ---
+echo "[ghostty]"
+mkdir -p "$HOME/.config/ghostty"
+link_file "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
+
+# --- cmux (macOS defaults) ---
+echo "[cmux]"
+bash "$DOTFILES_DIR/cmux/defaults.sh"
+
+# --- Claude Code ---
+echo "[claude]"
+mkdir -p "$HOME/.claude"
+link_file "$DOTFILES_DIR/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+claude_settings="$HOME/.claude/settings.json"
+if [ -f "$claude_settings" ] && command -v jq >/dev/null 2>&1; then
+  if jq -e '.statusLine' "$claude_settings" >/dev/null 2>&1; then
+    echo "  statusLine already set in ~/.claude/settings.json"
+  else
+    tmp=$(mktemp)
+    jq --arg cmd "$HOME/.claude/statusline-command.sh" \
+      '.statusLine = {type: "command", command: $cmd}' "$claude_settings" > "$tmp" && mv "$tmp" "$claude_settings"
+    echo "  Added statusLine to ~/.claude/settings.json"
+  fi
+else
+  echo "  NOTE: add to ~/.claude/settings.json -> \"statusLine\": {\"type\": \"command\", \"command\": \"~/.claude/statusline-command.sh\"}"
+fi
+
 echo ""
 echo "=== Done! ==="
 echo ""

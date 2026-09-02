@@ -34,6 +34,11 @@ brew "redis"
 brew "stripe/stripe-cli/stripe"
 brew "supabase/tap/supabase"
 
+# Terminal & fonts
+cask "ghostty"
+cask "cmux"
+cask "font-d2coding"
+
 # Oh My Zsh plugins (install manually)
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
