@@ -353,3 +353,8 @@ eval "$(zoxide init zsh --cmd cd)"
 # Claude Code auto-restart wrapper
 # alias ca="~/.claude/claude-auto.sh"
 #
+
+# Claude 두 번째 계정 (설정 폴더 분리, 지침·스킬·mod·memory는 ~/.claude 공유)
+alias claude-b='CLAUDE_CONFIG_DIR=$HOME/.claude-b claude'
+alias cb='CLAUDE_CONFIG_DIR=$HOME/.claude-b claude'
+alias cbd='CLAUDE_CONFIG_DIR=$HOME/.claude-b claude --dangerously-skip-permissions'
